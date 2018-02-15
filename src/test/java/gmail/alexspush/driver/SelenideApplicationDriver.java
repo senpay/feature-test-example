@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class SelenideApplicationDriver implements IApplicationDriver {
 
     //This url would be better to put into properties file
-    private static final String APPLICATION_URL = "http://todomvc.com/examples/angularjs/#/";
+    private static final String APPLICATION_URL = "http://localhost:4567/index";
 
     @Override
     public void openApplication() {

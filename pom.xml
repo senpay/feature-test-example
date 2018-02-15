@@ -25,10 +25,12 @@
             <artifactId>spark-template-freemarker</artifactId>
             <version>2.7.1</version>
         </dependency>
+        <!-- Test -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>  <!-- declare the exclusion here -->
                     <groupId>org.seleniumhq.selenium</groupId>
@@ -61,7 +63,8 @@
                 <exclusion>  <!-- declare the exclusion here -->
                     <groupId>org.seleniumhq.selenium</groupId>
                     <artifactId>selenium-remote-driver</artifactId>
-                </exclusion>               <exclusion>  <!-- declare the exclusion here -->
+                </exclusion>
+                <exclusion>  <!-- declare the exclusion here -->
                     <groupId>org.seleniumhq.selenium</groupId>
                     <artifactId>selenium-api</artifactId>
                 </exclusion>
@@ -72,16 +75,19 @@
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-junit</artifactId>
             <version>${serenity.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>4.8</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -89,28 +95,40 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <configuration>
+                    <excludes>*/*TestUI.java</excludes>
+                    <skip>false</skip>
+                </configuration>
             </plugin>
             <plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.version}</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
+                        <phase>package</phase>
                         <goals>
-                            <goal>aggregate</goal>
+                            <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

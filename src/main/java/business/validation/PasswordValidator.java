@@ -30,12 +30,13 @@ public class PasswordValidator implements IFieldValidator {
             return error;
         } else if (!doesConformToComplexityRules(strToValidate)) {
             return ValidationError.getOptionalValidationError(
-                    getFieldName() + "does not conform rules");
+                    getFieldName() + " does not conform rules");
         }
         return ValidationError.getEmptyValidationError();
     }
 
     private boolean doesConformToComplexityRules(String strToValidate) {
-        return strToValidate.matches(".*\\d.*") && strToValidate.matches(".*\\w.*");
+        return strToValidate.matches(".*\\d.*") &&
+                strToValidate.matches(".*\\p{Alpha}.*");
     }
 }

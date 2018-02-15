@@ -13,11 +13,11 @@
         <label for="password" class="login">Password</label>
         <input id="password" name="password" autocomplete="off" type="password"/>
     </div>
-    <input value="Log in" type="submit"/>
+    <input value="Log in" type="submit" id="submit"/>
 </form>
-<font color="red">Status: ${status}</font>
+<font color="red" id="status">Status: ${status}</font>
 <#list users as user>
-<p>${user}</p>
+<p id="users">${user}</p>
 </#list>
 </body>
 </html>

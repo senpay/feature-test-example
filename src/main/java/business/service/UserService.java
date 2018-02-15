@@ -37,7 +37,7 @@ public class UserService {
 
         User user = buildUser(login, fullUserName, password);
         userRepository.saveUser(user);
-        return "User: " + login + "was created";
+        return "user " + login + " was created";
     }
 
     public List<String> getUserInfoList() {
