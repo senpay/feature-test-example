@@ -1,8 +1,8 @@
-package gmail.alexspush.driver;
+package gmail.alexspush.ui.driver;
 
 
 import com.codeborne.selenide.Configuration;
-import gmail.alexspush.service.IApplicationDriver;
+import gmail.alexspush.ui.steps.IApplicationDriver;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.open;

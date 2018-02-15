@@ -1,6 +1,6 @@
-package gmail.alexspush.service;
+package gmail.alexspush.ui.steps;
 
-import gmail.alexspush.driver.SelenideApplicationDriver;
+import gmail.alexspush.ui.driver.SelenideApplicationDriver;
 import net.thucydides.core.annotations.Step;
 
 /**

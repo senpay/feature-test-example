@@ -1,18 +1,13 @@
-package gmail.alexspush.test;
+package gmail.alexspush.ui.test;
 
-import java.util.List;
-
-import gmail.alexspush.service.GenericStepsImpl;
-import gmail.alexspush.service.UserRegistrationSteps;
+import gmail.alexspush.ui.steps.GenericStepsImpl;
+import gmail.alexspush.ui.steps.UserRegistrationSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static gmail.alexspush.utils.TestUtils.generateItemName;
-import static gmail.alexspush.utils.TestUtils.getListWithoutSublist;
 
 /**
  * Created by Alexander Pushkarev.

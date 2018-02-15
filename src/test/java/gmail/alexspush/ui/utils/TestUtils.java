@@ -1,4 +1,4 @@
-package gmail.alexspush.utils;
+package gmail.alexspush.ui.utils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,8 @@
-package gmail.alexspush.service;
+package gmail.alexspush.ui.steps;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.codeborne.selenide.SelenideElement;
-import gmail.alexspush.page.SelenideMainPage;
+import gmail.alexspush.ui.page.SelenideMainPage;
 import net.thucydides.core.annotations.Step;
 
-import static gmail.alexspush.utils.TestUtils.generateItemName;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assume.assumeTrue;
