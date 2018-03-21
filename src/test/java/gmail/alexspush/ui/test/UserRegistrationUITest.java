@@ -10,14 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import spark.Spark;
-import sun.applet.Main;
 
 /**
  * Created by Alexander Pushkarev.
  * 6.2.18
  */
 @RunWith(SerenityRunner.class)
-public class UserRegistrationTestUI {
+public class UserRegistrationUITest {
 
     @Steps
     GenericStepsImpl genericSteps;
