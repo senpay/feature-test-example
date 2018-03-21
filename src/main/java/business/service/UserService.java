@@ -10,7 +10,6 @@ import business.validation.IFieldValidator;
 import business.validation.LoginValidator;
 import business.validation.PasswordValidator;
 import business.validation.ValidationError;
-import org.jruby.RubyProcess;
 import peristance.IUserRepository;
 
 /**

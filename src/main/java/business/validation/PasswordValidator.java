@@ -2,9 +2,6 @@ package business.validation;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
-import com.codeborne.selenide.commands.Val;
 
 /**
  * Created by Alexander Pushkarev.

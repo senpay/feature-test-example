@@ -1,5 +1,6 @@
 package gmail.alexspush.ui.test;
 
+import environment.MyServer;
 import gmail.alexspush.ui.steps.GenericStepsImpl;
 import gmail.alexspush.ui.steps.UserRegistrationSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -8,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import spark.Spark;
+import sun.applet.Main;
 
 /**
  * Created by Alexander Pushkarev.
@@ -23,14 +26,16 @@ public class UserRegistrationTestUI {
 
     @Before
     public void setUp() {
+        MyServer server = new MyServer();
+        server.start();
         genericSteps.openApplication();
     }
 
     @After
     public void tearDown() {
+        Spark.stop();
         genericSteps.closeApplication();
     }
-
 
     @Test
     public void shouldBeAbleToAddNewUser() {
