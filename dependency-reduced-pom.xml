@@ -76,10 +76,6 @@
           <groupId>org.seleniumhq.selenium</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>htmlunit-driver</artifactId>
-          <groupId>org.seleniumhq.selenium</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>selenium-remote-driver</artifactId>
           <groupId>org.seleniumhq.selenium</groupId>
         </exclusion>
@@ -158,6 +154,10 @@
         <exclusion>
           <artifactId>phantomjsdriver</artifactId>
           <groupId>com.codeborne</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>htmlunit-driver</artifactId>
+          <groupId>org.seleniumhq.selenium</groupId>
         </exclusion>
         <exclusion>
           <artifactId>java-client</artifactId>
