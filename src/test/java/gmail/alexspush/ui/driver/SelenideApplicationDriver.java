@@ -18,7 +18,7 @@ public class SelenideApplicationDriver implements IApplicationDriver {
     @Override
     public void openApplication() {
         //This configuration may as well be outside of the method, but does not matter now
-        Configuration.browser = "chrome";
+        Configuration.browser = "htmlunit";
 
         open(APPLICATION_URL);
     }

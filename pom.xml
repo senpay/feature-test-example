@@ -56,10 +56,10 @@
                     <groupId>org.seleniumhq.selenium</groupId>
                     <artifactId>selenium-support</artifactId>
                 </exclusion>
-                <exclusion>  <!-- declare the exclusion here -->
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>htmlunit-driver</artifactId>
-                </exclusion>
+                <!--<exclusion>  &lt;!&ndash; declare the exclusion here &ndash;&gt;-->
+                    <!--<groupId>org.seleniumhq.selenium</groupId>-->
+                    <!--<artifactId>htmlunit-driver</artifactId>-->
+                <!--</exclusion>-->
                 <exclusion>  <!-- declare the exclusion here -->
                     <groupId>org.seleniumhq.selenium</groupId>
                     <artifactId>selenium-remote-driver</artifactId>
