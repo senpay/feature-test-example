@@ -6,6 +6,7 @@ import org.junit.Test;
 import peristance.InMemoryUserRepository;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by senpay on 15.2.18.
@@ -25,10 +26,17 @@ public class UserServiceTest {
     }
 
     @Test
+    public void shouldBeAbleToAddNewUser() {
+        String error = sut.addUser("validname", CORRECT_USERNAME, CORRECT_PASSWORD);
+        assertTrue(error.contains("was created"));
+    }
+
+    @Test
     public void shouldReturnErrorForIncorrectLogin() {
         String error = sut.addUser("", CORRECT_USERNAME, CORRECT_PASSWORD);
         assertFalse(error.contains("was created"));
     }
+
 
     @Test
     public void shouldReturnErrorForIncorrectUserName() {
