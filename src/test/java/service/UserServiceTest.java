@@ -1,8 +1,12 @@
 package service;
 
 import business.service.UserService;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import peristance.InMemoryUserRepository;
 
 import static org.junit.Assert.assertFalse;
@@ -11,43 +15,34 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by senpay on 15.2.18.
  */
+@RunWith(SerenityRunner.class)
 public class UserServiceTest {
 
-    private static final String CORRECT_USERNAME = "User Name";
-    private static final String CORRECT_LOGIN = "userLogin";
-    private static final String CORRECT_PASSWORD = "pswd1";
-
-    private UserService sut;
+    @Steps
+    private UserServiceSteps userServiceSteps;
 
     @Before
     public void setUp() {
-        sut = new UserService();
-        sut.setUserRepository(new InMemoryUserRepository());
-    }
-
-    @Test
-    public void shouldBeAbleToAddNewUser() {
-        String error = sut.addUser("validname", CORRECT_USERNAME, CORRECT_PASSWORD);
-        assertTrue(error.contains("was created"));
+        userServiceSteps.init();
     }
 
     @Test
     public void shouldReturnErrorForIncorrectLogin() {
-        String error = sut.addUser("", CORRECT_USERNAME, CORRECT_PASSWORD);
-        assertFalse(error.contains("was created"));
+        String status = userServiceSteps.createUserWithNotValidLogin();
+        userServiceSteps.statusDoesNotContain(status, "was created");
     }
 
 
     @Test
     public void shouldReturnErrorForIncorrectUserName() {
-        String error = sut.addUser(CORRECT_LOGIN, "", CORRECT_PASSWORD);
-        assertFalse(error.contains("was created"));
+        String status = userServiceSteps.createUserWithNotValidName();
+        userServiceSteps.statusDoesNotContain(status, "was created");
     }
 
     @Test
     public void shouldReturnErrorForIncorrectPassword() {
-        String error = sut.addUser(CORRECT_LOGIN, CORRECT_USERNAME, "");
-        assertFalse(error.contains("was created"));
+        String status = userServiceSteps.createUserWithNotValidPassword();
+        userServiceSteps.statusDoesNotContain(status, "was created");
     }
 
 }
