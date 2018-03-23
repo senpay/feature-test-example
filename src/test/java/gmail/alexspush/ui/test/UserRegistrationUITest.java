@@ -51,7 +51,7 @@ public class UserRegistrationUITest {
     }
 
     @Test
-    public void shouldSeeErrorForIncorrectData() {
+    public void shouldSeeErrorForPasswordContainingOnlyLetters() {
         genericSteps.given();
 
         final String userName = "Valid Name";

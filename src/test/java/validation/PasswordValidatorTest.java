@@ -4,7 +4,10 @@ import java.util.Optional;
 
 import business.validation.PasswordValidator;
 import business.validation.ValidationError;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -12,17 +15,18 @@ import static org.junit.Assert.assertNotEquals;
 /**
  * Created by senpay on 15.2.18.
  */
+@RunWith(SerenityRunner.class)
 public class PasswordValidatorTest {
 
-    private static final String ONLY_DIGITS_PASSWORD = "111";
+    @Steps
+    private PasswordValidatorSteps passwordValidatorSteps;
 
     //Password without digits was verified on UI
     //verifying password that contains only digits
     @Test
     public void shouldReturnErrorInCaseOfPasswordWithOnlyDigit() {
-        PasswordValidator validator = new PasswordValidator();
-        Optional<ValidationError> error = validator.validate(ONLY_DIGITS_PASSWORD);
-        assertNotEquals(ValidationError.getEmptyValidationError(), error.get());
+        Optional<ValidationError> validationError = passwordValidatorSteps.passwordContaningOnlyDigitsGiven();
+        passwordValidatorSteps.validationErrorIsReturned(validationError);
     }
 
 }
