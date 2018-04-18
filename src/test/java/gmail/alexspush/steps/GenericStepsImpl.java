@@ -1,6 +1,7 @@
-package gmail.alexspush.ui.steps;
+package gmail.alexspush.steps;
 
-import gmail.alexspush.ui.driver.SelenideApplicationDriver;
+import gmail.alexspush.IApplicationDriver;
+import gmail.alexspush.driver.SelenideApplicationDriver;
 import net.thucydides.core.annotations.Step;
 
 /**

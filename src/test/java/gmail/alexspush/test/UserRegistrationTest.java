@@ -1,8 +1,8 @@
-package gmail.alexspush.ui.test;
+package gmail.alexspush.test;
 
 import environment.MyServer;
-import gmail.alexspush.ui.steps.GenericStepsImpl;
-import gmail.alexspush.ui.steps.UserRegistrationSteps;
+import gmail.alexspush.steps.GenericStepsImpl;
+import gmail.alexspush.steps.UserRegistrationSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.After;
@@ -16,7 +16,7 @@ import spark.Spark;
  * 6.2.18
  */
 @RunWith(SerenityRunner.class)
-public class UserRegistrationUITest {
+public class UserRegistrationTest {
 
     @Steps
     GenericStepsImpl genericSteps;

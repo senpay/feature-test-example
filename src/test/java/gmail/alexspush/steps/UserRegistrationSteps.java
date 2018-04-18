@@ -1,6 +1,6 @@
-package gmail.alexspush.ui.steps;
+package gmail.alexspush.steps;
 
-import gmail.alexspush.ui.page.SelenideMainPage;
+import gmail.alexspush.page.SelenideMainPage;
 import net.thucydides.core.annotations.Step;
 
 import static org.junit.Assert.assertEquals;

@@ -1,4 +1,4 @@
-package gmail.alexspush.ui.steps;
+package gmail.alexspush;
 
 /**
  * Created by Alexander Pushkarev on 7.2.18.

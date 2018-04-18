@@ -1,4 +1,4 @@
-package service;
+package gmail.alexspush.steps;
 
 import business.service.UserService;
 import net.thucydides.core.annotations.Step;
@@ -44,7 +44,7 @@ public class UserServiceSteps {
     }
 
     @Step
-    void statusDoesNotContain(final String status, final String expectedStatus) {
+    public void statusDoesNotContain(final String status, final String expectedStatus) {
         assertNotNull(status);
         assertFalse(status.contains(expectedStatus));
     }

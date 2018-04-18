@@ -1,4 +1,4 @@
-package gmail.alexspush.ui.page;
+package gmail.alexspush.page;
 
 import org.openqa.selenium.By;
 

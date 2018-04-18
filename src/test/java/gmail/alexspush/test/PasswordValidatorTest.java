@@ -1,9 +1,9 @@
-package validation;
+package gmail.alexspush.test;
 
 import java.util.Optional;
 
-import business.validation.PasswordValidator;
 import business.validation.ValidationError;
+import gmail.alexspush.steps.PasswordValidatorSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;

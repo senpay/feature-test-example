@@ -1,13 +1,11 @@
-package service;
+package gmail.alexspush.test;
 
-import business.service.UserService;
+import gmail.alexspush.steps.UserServiceSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import peristance.InMemoryUserRepository;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
