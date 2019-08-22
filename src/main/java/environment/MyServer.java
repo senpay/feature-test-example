@@ -6,8 +6,6 @@ import java.util.Map;
 import business.service.UserService;
 import org.eclipse.jetty.util.MultiMap;
 import org.eclipse.jetty.util.UrlEncoded;
-import peristance.IUserRepository;
-import peristance.InMemoryUserRepository;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 
@@ -22,34 +20,24 @@ import static spark.Spark.staticFiles;
  */
 public class MyServer {
 
-    private static IUserRepository repository = new InMemoryUserRepository();
-    private static UserService service = new UserService();
-
 
     public void start() {
-        service.setUserRepository(repository);
+        UserController controller = new UserController();
 
         staticFiles.location("/public");
         get("/index", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("status", "N/A");
-            model.put("users", service.getUserInfoList());
+            Map<String, Object> model = controller.getUsersList();
             return new FreeMarkerEngine().render(new ModelAndView(model, "index.ftl"));
         });
         post("/index", (req, res) -> {
             MultiMap<String> params = new MultiMap<>();
             UrlEncoded.decodeTo(req.body(), params, "UTF-8");
 
-
-            Map<String, Object> model = new HashMap<>();
-            model.put("status",
-                    service.addUser(
+            Map<String, Object> model = controller.addUser(
                             params.getString("username"),
                             params.getString("name"),
                             params.getString("password")
-                            )
             );
-            model.put("users", service.getUserInfoList());
             return new FreeMarkerEngine().render(new ModelAndView(model, "index.ftl"));
         });
     }
