@@ -13,10 +13,6 @@ import static spark.Spark.post;
  */
 public class Main {
 
-    private static IUserRepository repository = new InMemoryUserRepository();
-    private static UserService service = new UserService();
-
-
     public static void main(String[] args) {
         MyServer server = new MyServer();
         server.start();
