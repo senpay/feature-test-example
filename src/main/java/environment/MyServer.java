@@ -1,9 +1,7 @@
 package environment;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import business.service.UserService;
 import org.eclipse.jetty.util.MultiMap;
 import org.eclipse.jetty.util.UrlEncoded;
 import spark.ModelAndView;
@@ -22,7 +20,7 @@ public class MyServer {
 
 
     public void start() {
-        UserController controller = new UserController();
+        UserApplication controller = new UserApplication();
 
         staticFiles.location("/public");
         get("/index", (req, res) -> {

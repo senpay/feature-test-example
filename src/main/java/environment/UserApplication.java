@@ -7,7 +7,7 @@ import peristance.InMemoryUserRepository;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserController {
+public class UserApplication {
 
 
     private static IUserRepository repository = new InMemoryUserRepository();
