@@ -1,5 +1,6 @@
 package environment;
 
+import environment.UserApplication;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -60,6 +61,13 @@ public class UserApplicationTest {
         Assert.assertEquals("Login cannot be empty", response.get("status"));
         List<String> expectedUserList = (List<String>) response.get("users");
         Assert.assertFalse(expectedUserList.contains("Name: name1 login:  password password1"));
+    }
+
+    @Test
+    public void shouldReturnNAForIndexRequest() {
+        UserApplication sut = new UserApplication();
+        Map<String, Object> response = sut.getUsersList();
+        Assert.assertEquals("N/A", response.get("status"));
     }
 
 }
