@@ -17,15 +17,17 @@ public class UserApplication {
 
 
     public Map<String, Object> getUsersList() {
-        final Map<String, Object> model = new HashMap<>();
-        model.put("status", "N/A");
-        model.put("users", service.getUserInfoList());
-        return model;
+        return getUsersList("N/A");
     }
 
     public Map<String, Object> addUser(final String username, final String name, final String password) {
-        final Map<String, Object> model = new HashMap<>();
         final String status = service.addUser(username, name, password);
+        final Map<String, Object> model = getUsersList(status);
+        return model;
+    }
+
+    private Map<String, Object> getUsersList(String status) {
+        final Map<String, Object> model = new HashMap<>();
         model.put("status", status);
         model.put("users", service.getUserInfoList());
         return model;
